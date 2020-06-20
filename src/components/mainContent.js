@@ -4,18 +4,17 @@ import Jumbotron from "./jumbo";
 import Table from "./mainTable";
 
 
-export default class MainContent extends Component {
+export default class Main extends Component {
   state = {
-    results: 100,
+    results: 300,
     result: [],
-    filteredList: [],
+    filtered: [],
   };
 
   searchPeople = (num) => {
-    API.search(num)
-      //Search sets the single source of truth, result, and the modifiable data, the filteredList
+    API.search(num)      
       .then((res) => this.setState({ result: res.data.results }))
-      .then(() => this.setState({ filteredList: this.state.result }))
+      .then(() => this.setState({ filtered: this.state.result }))
       .catch((err) => console.log(err));
   };
 
@@ -25,68 +24,29 @@ export default class MainContent extends Component {
 
   onChange = (e) => {
     if (e.target.value.length < 1) {
-      return this.setState({ filteredList: this.state.result });
+      return this.setState({ filtered: this.state.result });
     } else {
       return this.setState({
-        filteredList: this.state.result.filter((entry) => {
-          const lcEntry = entry;
-          lcEntry.name.first.toLowerCase();
-          lcEntry.name.last.toLowerCase();
-          lcEntry.email.toLowerCase();
+        filtered: this.state.result.filter((entry) => {
+          const lowerCase = entry;
+          lowerCase.name.first.toLowerCase();
+          lowerCase.name.last.toLowerCase();
+          lowerCase.email.toLowerCase();
           return (
-            lcEntry.name.first.includes(e.target.value.toLowerCase()) ||
-            lcEntry.name.last.includes(e.target.value.toLowerCase()) ||
-            lcEntry.email.includes(e.target.value.toLowerCase())
+            lowerCase.name.first.includes(e.target.value.toLowerCase()) ||
+            lowerCase.name.last.includes(e.target.value.toLowerCase()) ||
+            lowerCase.email.includes(e.target.value.toLowerCase())
           );
         }),
       });
     }
   };
 
-  onClick = (e) => {
-    let firstNum = 1;
-    let secondNum = -1;
-    if (
-      e.target.getAttribute("dataascordesc") === "" ||
-      e.target.getAttribute("dataascordesc") === "Asc"
-    ) {
-      firstNum = 1;
-      secondNum = -1;
-      e.target.setAttribute("dataascordesc", "Desc");
-    } else {
-      firstNum = -1;
-      secondNum = 1;
-      e.target.setAttribute("dataascordesc", "Asc");
-    }
-    switch (e.target.id) {
-      case "Name":
-        return this.setState({
-          filteredList: this.state.filteredList.sort((a, b) =>
-            a.name > b.name ? firstNum : secondNum
-          ),
-        });
-      case "Age":
-        return this.setState({
-          filteredList: this.state.filteredList.sort((a, b) =>
-            a.dob.age > b.dob.age ? firstNum : secondNum
-          ),
-        });
-      case "Phone":
-        return this.setState({
-          filteredList: this.state.filteredList.sort((a, b) =>
-            a.dob.phone > b.dob.phone ? firstNum : secondNum
-          ),
-        });
-      case "Email":
-        return this.setState({
-          filteredList: this.state.filteredList.sort((a, b) =>
-            a.dob.email > b.dob.email ? firstNum : secondNum
-          ),
-        });
-      default:
-        return;
-    }
+  handleFormSubmit = event => {
+   
   };
+
+  
 
   render() {
     return (
@@ -95,7 +55,7 @@ export default class MainContent extends Component {
         <Table
           onChange={this.onChange}
           result={this.state.result}
-          filteredList={this.state.filteredList}
+          filtered={this.state.filtered}
         />
       </main>
     );

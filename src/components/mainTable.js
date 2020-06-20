@@ -2,36 +2,51 @@ import React, { Component } from "react";
 import TableRow from "./row";
 import Search from "./search";
 
-export default class Table extends Component {
+const styles = {
+  card: {
+    marginBottom: "20px",
+  },
+};
 
+export default class Table extends Component {
   render() {
     return (
-      <div id="tableWrapper">
-        <div className="mainTable mainTable--1cols">
+      <div>
+        
+        <div className="mainTable mainTable ">
           {/* Label Row */}
-          <div className="mainTable-row-label">
-          < Search result={this.props.result} filteredList={this.props.filteredList} onChange={this.props.onChange}/>
-            <div className="mainTable-cell-label">Name</div>
-            <div className="mainTable-cell-label">Email</div>
-            <div className="mainTable-cell-label">Phone</div>
-            <div className="mainTable-cell-label">Age</div>
+          <div className="mainTable search" style={styles.card}>
+            <Search
+              result={this.props.result}
+              filtered={this.props.filtered}
+              onChange={this.props.onChange}
+            />
           </div>
           {/* Data Rows */}
-          {this.props.filteredList.map((person) => (
+          <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Picture</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  </table>
+          {this.props.filtered.map((data) => (
             <TableRow
-              key={person.login.uuid}
-              fName={person.name.first}
-              lName={person.name.last}
-              img={person.picture.medium}
-              email={person.email}
-              phone={person.phone}
-              dob={person.dob.date}
-              age={person.dob.age}
+              key={data.login.uuid}
+              firstName={data.name.first}
+              lastName={data.name.last}
+              img={data.picture.medium}
+              email={data.email}
+              phone={data.phone}
+              dob={data.dob.date}
+              age={data.dob.age}
             />
-          ))} 
+          ))}
         </div>
       </div>
     );
   }
 }
-

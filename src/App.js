@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-
-import MainContent from "./components/mainContent"
+import Main from "./components/mainContent"
 
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
 
   return(
     <div>
-      <MainContent />
+      <Main />
     </div>
 
 
