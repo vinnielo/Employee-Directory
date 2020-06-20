@@ -7,7 +7,7 @@ export default {
     let URL = defaultURL;
     //if a number is supplied, change the URL to get that many results
     if (num) {
-      URL += '?results=' + num;
+      URL += '?results=' + num + '&nat=us';
     }
     return axios.get(URL);
   },

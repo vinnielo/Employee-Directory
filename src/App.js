@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Jumbotron from "./components/jumbo";
-import Api from "../../utils/API";
 
-class App extends Component {
+import MainContent from "./components/mainContent"
+
+
+function App() {
   
-render(){
+
   return(
     <div>
-      <Jumbotron />
+      <MainContent />
     </div>
 
 
   )
 }
 
-}
+
 
 export default App;
