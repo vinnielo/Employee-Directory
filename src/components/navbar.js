@@ -9,7 +9,8 @@ const styles = {
   },
   row:{
       float: "right",
-      marginRight: "25px  "
+      marginRight: "25px  ",
+      paddingBottom: "9px"
   }
 };
 
