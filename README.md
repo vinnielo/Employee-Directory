@@ -1,6 +1,24 @@
+![README](https://img.shields.io/badge/React-EmpDir-red?style=plastic&logo=appveyor)
+![License](https://img.shields.io/badge/MIT-100%-blue?style=plastic&logo=appveyor)
+
+## Employee Directory
+
+A react app that allows the user the ability to search through a database of employees. The user can type in the employee name and filter through all the rows. The user can also sort by the employees last name. 
+
+the app can be viewed at: https://vinnielo.github.io/Employee-Directory/
+
+When the app is ran it will generate a new set of employees. The user can always have the ability to filter and sort. 
+
+## User Story
+
+* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+
+
+### React data
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -37,32 +55,15 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Credits
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Name: vinnielo 
 
-### Code Splitting
+## Questions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Email: vinnielo01@gmail.com 
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Licensed under the MIT license.
