@@ -8,7 +8,8 @@ const styles = {
     marginRight: "13px"
   },
   row:{
-      float: "right"
+      float: "right",
+      marginRight: "25px  "
   }
 };
 

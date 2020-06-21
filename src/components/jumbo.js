@@ -7,7 +7,8 @@ const styles = {
     fontWeight: "bold"
   },
   background: {
-    backgroundColor: "brown"
+    backgroundColor: "brown",
+    marginBottom: 0
   }
   
 };

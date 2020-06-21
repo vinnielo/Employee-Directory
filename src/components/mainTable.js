@@ -9,6 +9,10 @@ const styles = {
   row: {
     textAlign: "center",
   },
+  edge:{
+    marginLeft: "25px",
+    marginRight: "25px"
+  }
 };
 
 export default class Table extends Component {
@@ -30,7 +34,7 @@ export default class Table extends Component {
   render() {
     return (
       <div>
-        <div className="mainTable mainTable ">
+        <div className="mainTable mainTable " style={styles.edge}>
           {/* Label Row */}
           <div className="mainTable search" style={styles.card}>
             <Search
