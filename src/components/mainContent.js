@@ -59,7 +59,7 @@ export default class Main extends Component {
       e.target.setAttribute("customSort", "Asc");
     }
     switch (e.target.id) {
-      case "Name":
+      case "Last Name":
         return this.setState({
           filtered: this.state.filtered.sort((a, b) =>
             a.name.last > b.name.last ? firstNum : secondNum

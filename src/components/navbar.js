@@ -13,7 +13,7 @@ const styles = {
 };
 
 export default class Navbar extends Component {
-  navItems = [{ id: 1, text: "Name" }];
+  navItems = [{ id: 1, text: "Last Name" }];
 
   render() {
     return (
