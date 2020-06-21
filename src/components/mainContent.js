@@ -2,24 +2,25 @@ import React, { Component } from "react";
 import API from "../utils/Api";
 import Jumbotron from "./jumbo";
 import Table from "./mainTable";
+import Navbar from "./navbar";
 
 
 export default class Main extends Component {
   state = {
-    results: 300,
+    results: 200,
     result: [],
     filtered: [],
   };
 
-  searchPeople = (num) => {
-    API.search(num)      
+  searchName = (num) => {
+    API.search(num)
       .then((res) => this.setState({ result: res.data.results }))
       .then(() => this.setState({ filtered: this.state.result }))
       .catch((err) => console.log(err));
   };
 
   componentDidMount() {
-    this.searchPeople(this.state.results);
+    this.searchName(this.state.results);
   }
 
   onChange = (e) => {
@@ -42,16 +43,38 @@ export default class Main extends Component {
     }
   };
 
-  handleFormSubmit = event => {
-   
+  onClick = (e) => {
+    let firstNum = 1;
+    let secondNum = -1;
+    if (
+      e.target.getAttribute("customSort") === "" ||
+      e.target.getAttribute("customSort") === "Asc"
+    ) {
+      firstNum = 1;
+      secondNum = -1;
+      e.target.setAttribute("customSort", "Desc");
+    } else {
+      firstNum = -1;
+      secondNum = 1;
+      e.target.setAttribute("customSort", "Asc");
+    }
+    switch (e.target.id) {
+      case "Name":
+        return this.setState({
+          filtered: this.state.filtered.sort((a, b) =>
+            a.name.last > b.name.last ? firstNum : secondNum
+          ),
+        });
+      default:
+        return;
+    }
   };
-
-  
 
   render() {
     return (
       <main>
         <Jumbotron />
+        <Navbar filtered={this.state.filtered} onClick={this.onClick} />
         <Table
           onChange={this.onChange}
           result={this.state.result}

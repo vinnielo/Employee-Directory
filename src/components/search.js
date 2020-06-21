@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 
+const styles = {
+  card: {
+    paddingBottom: "10px",
+  }
+  
+};
+
 export default class Search extends Component {
+
+ 
   render() {
     return (
       <div className="searchBarWrapper">
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-light bg-dark" style={styles.card}>
           <form className="form-inline">
             <input
               className="form-control mr-sm-2"
@@ -14,15 +23,6 @@ export default class Search extends Component {
               onChange={this.props.onChange}
             />
           </form>
-          <div className="mainTable search">
-            sort by:
-            <div
-              className="mainTable btn btnName"
-              onClick={() => this.handleClick()}
-            >
-              Name
-            </div>
-          </div>
         </nav>
       </div>
     );
