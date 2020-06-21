@@ -23,20 +23,19 @@ export default class Main extends Component {
     this.searchName(this.state.results);
   }
 
-  onChange = (e) => {
-    if (e.target.value.length < 1) {
+  onChange = (event) => {
+    if (event.target.value.length < 1) {
       return this.setState({ filtered: this.state.result });
     } else {
       return this.setState({
-        filtered: this.state.result.filter((entry) => {
-          const lowerCase = entry;
-          lowerCase.name.first.toLowerCase();
-          lowerCase.name.last.toLowerCase();
-          lowerCase.email.toLowerCase();
+        filtered: this.state.result.filter((data) => {          
+          data.name.first.toLowerCase();
+          data.name.last.toLowerCase();
+          data.email.toLowerCase();
           return (
-            lowerCase.name.first.includes(e.target.value.toLowerCase()) ||
-            lowerCase.name.last.includes(e.target.value.toLowerCase()) ||
-            lowerCase.email.includes(e.target.value.toLowerCase())
+            data.name.first.includes(event.target.value.toLowerCase()) ||
+            data.name.last.includes(event.target.value.toLowerCase()) ||
+            data.email.includes(event.target.value.toLowerCase())
           );
         }),
       });
